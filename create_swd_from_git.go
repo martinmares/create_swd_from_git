@@ -83,7 +83,7 @@ func main() {
 			}
 
 			// Copy file to...
-			_, err = copy(line, newDir+string(os.PathSeparator)+f)
+			_, err = copy(line, schema+string(os.PathSeparator)+f)
 			if err != nil {
 				panic(err)
 			}
