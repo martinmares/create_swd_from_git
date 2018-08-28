@@ -71,6 +71,9 @@ func main() {
 	for i, line := range lines {
 		if len(line) > 0 {
 			d, f := filepath.Split(line)
+			// Kvuli Windows musí být strings.Replace,
+			// protože git vrací seznam souborů v UNIX formátu a konstanta os.PathSeparator tam má "\"
+			d = strings.Replace(d, "/", string(os.PathSeparator), -1)
 			dirs := strings.Split(d, string(os.PathSeparator))
 			schema := dirs[0]
 			fmt.Fprintf(color.Output, "  [%3.3d] %v %v %v\n", i, cyan(schema), arrow, yellow(f))
