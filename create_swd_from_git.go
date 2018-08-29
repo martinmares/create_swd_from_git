@@ -86,8 +86,9 @@ func main() {
 			}
 
 			// Copy file to...
-			if _, err := os.Stat("/path/to/whatever"); err == nil {
-				_, err = copy(line, schema+string(os.PathSeparator)+f)
+			fileCopyTo := newDir + string(os.PathSeparator) + f
+			if _, err := os.Stat(line); err == nil {
+				_, err = copy(line, fileCopyTo)
 				if err != nil {
 					panic(err)
 				}
