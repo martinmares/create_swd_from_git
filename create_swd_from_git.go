@@ -50,7 +50,6 @@ func main() {
 	green := color.New(color.FgHiGreen).SprintFunc()
 	yellow := color.New(color.FgHiYellow).SprintFunc()
 	cyan := color.New(color.FgHiCyan).SprintFunc()
-	//white := color.New(color.FgHiWhite).SprintFunc()
 
 	fmt.Fprintf(color.Output, "From commit: %s\n", green(*fromCommitArg))
 	fmt.Fprintf(color.Output, "To commit: %s\n", green(*toCommitArg))
@@ -71,8 +70,8 @@ func main() {
 	for i, line := range lines {
 		if len(line) > 0 {
 			d, f := filepath.Split(line)
-			// Kvuli Windows musí být strings.Replace,
-			// protože git vrací seznam souborů v UNIX formátu a konstanta os.PathSeparator tam má "\"
+			// Windows compatibility
+			// git return list of files in UNIX slash but os.PathSeparator return "\"
 			d = strings.Replace(d, "/", string(os.PathSeparator), -1)
 			dirs := strings.Split(d, string(os.PathSeparator))
 			schema := dirs[0]
