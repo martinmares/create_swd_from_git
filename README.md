@@ -1,5 +1,7 @@
 # create_swd_from_git
 
+## TL;DR
+
 `swd` is shortcut for `[s]oft[w]arová [d]ávka` ... sorry for this, but shortcut is in CZK lang ;-)
 
 Small utility generate "directory tree" structure only changed files `from commit` → `to commit`.
@@ -15,7 +17,7 @@ Usage of binary/mac64/create_swd_from_git:
     	To commit... (default "...")
 ```
 
-# Howto make
+## Howto make
 
 type `make all` in terminal.
 
@@ -28,7 +30,7 @@ CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o binary/win64/create_swd_from
 CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o binary/linux64/create_swd_from_git -v
 CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build -o binary/mac64/create_swd_from_git -v
 ```
-# Howto use
+## Howto use
 
 simple type `create_swd_from_git` (or `./create_swd_from_git`) with this parameters `fromCommit`, `toCommit`, `copyTo`:
 
